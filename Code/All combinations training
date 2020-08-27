@@ -26,7 +26,7 @@ order_ = 3
 def processFile(matfile,order):
         
         file = scipy.io.loadmat(matfile)
-        new = (file['data1'])[:,[10,11,12,13,14,15,26,27,28,29,30,31]] #file is a dictionary. The actual data is the value of the 'data1' key
+        new = (file['data1'])[:,[10,11,12,13,14,15,26,27,28,29,30,31]] #file is a dictionary. The actual data is the value of the 'data1' key, Indexing refers to Left/Right hand Acceleration and angular velocity
         # temp1 = np.reshape(new,-1) #flatten
                 
         ''' to have each file trained '''
@@ -118,6 +118,7 @@ from sklearn import metrics
 from sklearn.metrics import f1_score 
 import statistics 
 
+# Generates TP, TN, FP, FN from the data to calculates specitivty
 def spevsv_measure(conf):
     FP = conf.sum(axis=0) - np.diag(confusion_matrix)  
     FN = conf.sum(axis=1) - np.diag(confusion_matrix)
@@ -147,9 +148,7 @@ for i in range(10):
     
     Y_pred=clf.predict(X_test)
 
-    # Model Accuracy, how often is the classifier correct?
-    #print('acc=', np.mean(Y_pred == Y_test) * 100)
-    
+    # Model Metrics
     accuracy_mean.append(metrics.accuracy_score(Y_test, Y_pred))
     percesion_mean.append(metrics.precision_score(Y_test, Y_pred,average='weighted'))
     recall_mean.append(metrics.recall_score(Y_test, Y_pred,average='weighted'))
