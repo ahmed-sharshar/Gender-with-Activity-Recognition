@@ -4,6 +4,14 @@ import numpy as np
 import pandas as pd
 import statsmodels
 from statsmodels.tsa.api import VAR
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+import scikitplot as skplt 
+from sklearn import metrics
+from sklearn.metrics import f1_score 
+import statistics 
+
 
 '''reading files'''
 path = "D:/E-JUST/UG2/2nd/PBL/Codes/FINAL"
@@ -80,15 +88,7 @@ for i, sample in enumerate(n_featVect): #i in range(number of matrices) , sample
 X_test= np.array(featVect).reshape(-1, 1)    
 # =============================================================================
 
-
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix
-import scikitplot as skplt 
-from sklearn import metrics
-from sklearn.metrics import f1_score 
-import statistics 
+# Generates TP, TN, FP, FN from the data to calculates specitivty
 
 def spevsv_measure(conf):
     FP = conf.sum(axis=0) - np.diag(confusion_matrix)  
