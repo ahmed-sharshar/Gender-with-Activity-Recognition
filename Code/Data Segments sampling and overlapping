@@ -2,7 +2,7 @@ import numpy as np
 import os
 import scipy.io as sio
 
-files=os.listdir('E://E-JUST//year3//second term//project based learning//New folder')
+files=os.listdir('//')
 x=[]
 
 for file in files:
