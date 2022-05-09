@@ -7,9 +7,7 @@ from statsmodels.tsa.api import VAR
 
 '''reading files'''
 
-#path= "D:\\E-JUST\\UG2\\2nd\\PBL\\Codes"
-#cdpath = 'D:\E-JUST\UG2\2nd\PBL\Codes'
-path = "D:/E-JUST/UG2/2nd/PBL/Codes/FINAL"
+path = "//"
 
 files = []
 for r, d, f in os.walk(path):
