@@ -7,3 +7,4 @@ only two IMU sensors on right and left hand and motion sense dataset using mobil
 
 The files are included in the drive folder below
   The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training
+- The cut and feature-extracted data are available upon request.
