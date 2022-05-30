@@ -11,7 +11,7 @@ The diagram below illustrates the process of data processing, model designing, a
 <!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/61229902/170965290-d462820d-0c0d-465b-8615-b68893f27bbb.png" width="200" height="300" />
 </p> -->
-Data Visualization for MoVi Data, https://www.biomotionlab.ca/movi/
+Data Visualization for <a href=https://www.biomotionlab.ca/movi/> MoVi </a> Data, 
 <p align="center">
 <img src="https://github.com/saeed1262/MoVi-Toolbox/blob/352621e742ff8f745c3ada417d3db22d0ddf31ae/demo.gif" />
 </p>
