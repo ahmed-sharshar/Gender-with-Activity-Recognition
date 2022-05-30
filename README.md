@@ -8,7 +8,7 @@ The diagram below illustrates the process of data processing, model designing, a
 <p align="center">
 <img src="https://user-images.githubusercontent.com/61229902/170962144-66ba0511-db33-4c87-a7cd-1b8906058ed1.png" width="900" height="200" />
 </p>
-
-The files are included in the drive folder below
+It is worth to note that the cut and feature-extracted data are available upon request.
+- The files are included in the drive folder below
   The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training
-- The cut and feature-extracted data are available upon request.
+
