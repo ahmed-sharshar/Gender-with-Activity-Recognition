@@ -8,9 +8,15 @@ The diagram below illustrates the process of data processing, model designing, a
 <img src="https://user-images.githubusercontent.com/61229902/170962144-66ba0511-db33-4c87-a7cd-1b8906058ed1.png" width="900" height="200" />
 </p>
 
-<p align="center">
+<!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/61229902/170965290-d462820d-0c0d-465b-8615-b68893f27bbb.png" width="200" height="300" />
+</p> -->
+
+<p align="center">
+<img src="https://github.com/saeed1262/MoVi-Toolbox/blob/352621e742ff8f745c3ada417d3db22d0ddf31ae/demo.gif" />
 </p>
+
+
 
 It is worth to note that the cut and feature-extracted data are available upon request.
 <!-- - The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training -->
