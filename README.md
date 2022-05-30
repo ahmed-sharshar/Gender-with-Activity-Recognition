@@ -6,7 +6,7 @@ Regarding the booming of big data and HAR in the scientific world, we conducted 
 only two IMU sensors on right and left hand and motion sense dataset using mobile phone, to predict gender with activity and see how every activity reflect on gender, and explore the efficiency on using autocorrelation function as a feature extractor and compare between three classifiers, Random Forest (RF), Support Vector Machine (SVM) and Convolution Neural Network (CNN).
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/61229902/168145900-86af7846-a8b4-4466-a8f6-301d023a9ec5.jpeg" width="600" height="200" />
+<img src="https://user-images.githubusercontent.com/61229902/170962144-66ba0511-db33-4c87-a7cd-1b8906058ed1.png" width="800" height="200" />
 </p>
 
 The files are included in the drive folder below
