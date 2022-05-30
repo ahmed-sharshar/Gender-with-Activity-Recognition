@@ -21,7 +21,9 @@ Data Visualization for MoVi data,
 <p align="center">
 <img src="https://github.com/saeed1262/MoVi-Toolbox/blob/352621e742ff8f745c3ada417d3db22d0ddf31ae/demo.gif" />
 </p>
+
 - Feature Selection <br>
+
 Using the synchronized videos, we monitored the beginning and the ending
 time of each activity by watching the videos for each subject in order to be able to extract the raw data for that activity from the raw data of the dataset. In the raw dataset, every second is presented as 120 timesteps, as the IMU devices in 120 Hz, we converted the captured time into seconds and calculated the starting and ending time for each activity. Using a Matlab script, we extracted the data for each activity desired, given the starting and ending timesteps, and saved that data as a distinct data segment. The extracted activities are four common activities, which are walking, running, clapping and waving.
 
@@ -39,7 +41,7 @@ The Figure features multiple data segments, each segment is a representation for
 
 
 
-B. <a href = "https://github.com/mmalekzadeh/motion-sense">MotionSense</a> <br>
+B. The <a href = "https://github.com/mmalekzadeh/motion-sense">MotionSense</a> Dataset <br>
 The MotionSense dataset is an open source dataset that
 contains IMU data collected from iPhone 6s mobile phone
 kept in the participant’s front pocket. The dataset features
@@ -55,6 +57,7 @@ conditions. See the figure below.
 | Time-series correspond to Walking activity of data subject(code 3). There are 12-features. |
 
 - Feature Selection <br>
+
 We have chosen five activities from this dataset for 14 males
 and 10 females: going downstairs, going upstairs, walking,
 jogging, and sitting. We used the data segments of the long
@@ -102,8 +105,8 @@ We explored the accuracy and F-measure for both datasets using RF, SVM, and CNN,
 |:---:|
 | Summarizing the results of all experiments |
 
+<br>
 
-
-### It is worth to note that the cut and feature-extracted data are available upon request.
+### → It is worth to note that the cut and feature-extracted data are available upon request.
 <!-- - The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training -->
 
