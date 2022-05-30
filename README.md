@@ -21,14 +21,14 @@ Data Visualization for MoVi data,
 <p align="center">
 <img src="https://github.com/saeed1262/MoVi-Toolbox/blob/352621e742ff8f745c3ada417d3db22d0ddf31ae/demo.gif" />
 </p>
-- Feature Selection
+- Feature Selection <br>
 Using the synchronized videos, we monitored the beginning and the ending
 time of each activity by watching the videos for each subject in order to be able to extract the raw data for that activity from the raw data of the dataset. In the raw dataset, every second is presented as 120 timesteps, as the IMU devices in 120 Hz, we converted the captured time into seconds and calculated the starting and ending time for each activity. Using a Matlab script, we extracted the data for each activity desired, given the starting and ending timesteps, and saved that data as a distinct data segment. The extracted activities are four common activities, which are walking, running, clapping and waving.
 
 Afterwards, the extracted dataset was split into fixed-size samples. Each sample represents a 1.5-second signal with overlapping samples of 0.25 seconds. The sampling rate was at 120 Hz, in other words, each sample had 180 time step rows representing 1.5 sec of sensor readings and 12 feature columns representing the 3-axis acceleration and 3-axis angular velocity for both right and left hand. A scatter plot of the data is represented below.
 
 <!-- <p align="center"> -->
-| <img src="https://user-images.githubusercontent.com/61229902/171028549-f930f77a-0caf-4fca-8cec-101b479ade6a.png" class="img-responsive"> |
+| <img src="https://user-images.githubusercontent.com/61229902/171028549-f930f77a-0caf-4fca-8cec-101b479ade6a.png"  width="75%"  class="img-responsive"> |
 |:---:|
 | Scatter Plot of 5 time records for 4 acctivities of both genders |
 <!-- </p> -->
@@ -54,7 +54,7 @@ conditions. See the figure below.
 |:---:|
 | Time-series correspond to Walking activity of data subject(code 3). There are 12-features. |
 
-- Feature Selection
+- Feature Selection <br>
 We have chosen five activities from this dataset for 14 males
 and 10 females: going downstairs, going upstairs, walking,
 jogging, and sitting. We used the data segments of the long
@@ -68,19 +68,42 @@ one activity with one gender, therefore there are 10 different
 colors which represent 5 activities for both genders. The Figure
 shows closeness within the same cluster, and distinctive gap
 between the clusters. 
-| <img src="https://user-images.githubusercontent.com/61229902/171030205-2d3dbf35-2f77-423f-9e3f-adf37d19d3a4.png" class="img-responsive"> |
+
+| <img src="https://user-images.githubusercontent.com/61229902/171030205-2d3dbf35-2f77-423f-9e3f-adf37d19d3a4.png"  width="70%"  class="img-responsive"> |
 |:---:|
-| Scatter Plot of 5 Samples of Acceleration Data For All Combinations in MotionSense dataset. |
+| Scatter Plot of 5 Samples of Acceleration Data For All Combinations in MotionSense dataset |
 
 ## Experinmental Setup
 
-A. FEATURE EXTRACTION
+A. Feature Extraction <br>
+In order to reduce the complexity of the training and testing processes, we used the ACF as a feature extractor. In general, the autocorrelation function takes an input value of the lag $h$ and outputs the autocorrelation value at that lag $\rho(h)$. Of course, given the data samples, we are only able to give an estimate of the autocorrelation function $\hat{\rho}(h)$. 
+
+B. Joint Distribution Model  <br>
+The joint recognition approach is based on jointly classify both the activity and gender simultaneously.
+From a probabilistic perspective, joint recognition computes the joint probability of two random variables representing the activity and gender $P(A,G)$. This model is taking the whole dataset as an input and construct a learning model. 
+
+C. Hierarchical Model <br>
+The output of interest is described by two latent random variables $A$ for activity and $G$ for gender. It is easy to see that we can improve the accuracy of the classification by separating the classification into two stages. The first stage will be classification based on the activity and once it is determined we can proceed through the second stage and predicts the gender.
+
+This two-stage model is expected to show higher accuracy than the joint predictive model, and this is evident using Bayes' theorem:
+$$ P(G|A) = \frac{P(A,G)}{P(A)} $$
+
+The joint predictive model is equivalent to computing the joint probability $P(A,G)$, whereas the hierarchical
+model is equivalent to computing the conditional probability $P(G|A)$ which is generally higher than $P(A,G)$ as the latter is divided by $P(A)$.
+
+| <img src="https://user-images.githubusercontent.com/61229902/171032304-4e762058-bb74-439f-9a9d-f234d81097d4.jpeg" width="500" height="400" class="img-responsive"> |
+|:---:|
+| Two stage recognition model for (activity,gender). |
+
+## Results
+We explored the accuracy and F-measure for both datasets using RF, SVM, and CNN, all in the two approaches, Joint approach and Hierarchical approach. The table below  summarizes all the results of these experiments.
+
+| <img src="https://user-images.githubusercontent.com/61229902/171033620-854278a4-1f86-4655-987b-4c1e7638584d.jpeg" class="img-responsive"> |
+|:---:|
+| Summarizing the results of all experiments |
 
 
 
-
-
-
-It is worth to note that the cut and feature-extracted data are available upon request.
+### It is worth to note that the cut and feature-extracted data are available upon request.
 <!-- - The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training -->
 
