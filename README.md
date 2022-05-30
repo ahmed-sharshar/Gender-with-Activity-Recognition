@@ -3,7 +3,7 @@
 ## Overview
 
 Regarding the booming of big data and HAR in the scientific world, we conducted a research project that addresses the recognition of activities performed in addition to the gender of the performer. In this work, we present two models (hierarchical model and joint distribution model) and compare between two datasets (MoVi and MotionSense), using only two IMU sensors on right and left hand and motion sense dataset using mobile phone, to predict gender with activity and see how every activity reflect on gender, and explore the efficiency on using autocorrelation function as a feature extractor and compare between three classifiers, Random Forest (RF), Support Vector Machine (SVM) and Convolution Neural Network (CNN).
-The diagram below illustrates the process of data processing, model designing, and inference.  
+The diagram below illustrates the overall process of data processing, model designing, and inference.  
 <p align="center">
 <img src="https://user-images.githubusercontent.com/61229902/170962144-66ba0511-db33-4c87-a7cd-1b8906058ed1.png" width="900" height="200" />
 </p>
@@ -11,10 +11,73 @@ The diagram below illustrates the process of data processing, model designing, a
 <!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/61229902/170965290-d462820d-0c0d-465b-8615-b68893f27bbb.png" width="200" height="300" />
 </p> -->
-Data Visualization for <a href=https://www.biomotionlab.ca/movi/> MoVi </a> Data, 
+## Datasets
+We relied on two open source datasets. <br>
+A. The <a href=https://www.biomotionlab.ca/movi/> MoVi </a> dataset <br>
+MoVi is an open source dataset that contains
+two types of data: IMU sensory data and optical motion capture (MoCap). We used the IMU data collected from 90 participants, 60 of them are females and 30 are males, which were chosen with a high degree of variation by means of height, weight, and age. We used data of 80 different subjects from two rounds. We used data from the two rounds for male subjects in order to compensate for the shortage in the males subjects. Eventually, we used data from 51 females and 51 males. The extracted and preprocessed data are from two IMU units only, right and left hands. As, some volunteers are left-handed, some are right-handed, while others use both, so we had to capture all data from both units. In our analysis we only used the acceleration and the angular velocity; these two particular modalities can represent the 3-axial Gyroscope and 3-axial Accelerometer which both are found in smart watches and mobile phones. The MoVi dataset is represented as data-files and corresponding videos of the subjects doing the activities; these videos are synchronized with the data-files. 
+
+Data Visualization for MoVi data, 
 <p align="center">
 <img src="https://github.com/saeed1262/MoVi-Toolbox/blob/352621e742ff8f745c3ada417d3db22d0ddf31ae/demo.gif" />
 </p>
+- Feature Selection
+Using the synchronized videos, we monitored the beginning and the ending
+time of each activity by watching the videos for each subject in order to be able to extract the raw data for that activity from the raw data of the dataset. In the raw dataset, every second is presented as 120 timesteps, as the IMU devices in 120 Hz, we converted the captured time into seconds and calculated the starting and ending time for each activity. Using a Matlab script, we extracted the data for each activity desired, given the starting and ending timesteps, and saved that data as a distinct data segment. The extracted activities are four common activities, which are walking, running, clapping and waving.
+
+Afterwards, the extracted dataset was split into fixed-size samples. Each sample represents a 1.5-second signal with overlapping samples of 0.25 seconds. The sampling rate was at 120 Hz, in other words, each sample had 180 time step rows representing 1.5 sec of sensor readings and 12 feature columns representing the 3-axis acceleration and 3-axis angular velocity for both right and left hand. A scatter plot of the data is represented below.
+
+<!-- <p align="center"> -->
+| <img src="https://user-images.githubusercontent.com/61229902/171028549-f930f77a-0caf-4fca-8cec-101b479ade6a.png" class="img-responsive"> |
+|:---:|
+| Scatter Plot of 5 time records for 4 acctivities of both genders |
+<!-- </p> -->
+
+
+The Figure features multiple data segments, each segment is a representation for the data extracted from the raw data files. Each point in the graph represents a time step, with its coordinates to be the 3-axis acceleration coordinates. The plot includes 8 different colors, each represents a different class, each class represents specific activity and gender. Thus, the closeness of points with the same colors, and the gap between each class points as a cluster reflects the ability of the classifier result in a reliable accuracy.
+
+
+
+
+B. <a href = "https://github.com/mmalekzadeh/motion-sense">MotionSense</a> <br>
+The MotionSense dataset is an open source dataset that
+contains IMU data collected from iPhone 6s mobile phone
+kept in the participant’s front pocket. The dataset features
+a sampling rate of 50 Hz. This dataset includes time-series
+data generated by 3-axis gyroscope and 3-axis accelerometer
+sensors. A total of 24 participants from both genders (10
+females and 14 males), different ages, weights, and heights,
+performed 6 activities in 15 trials in the same environment and
+conditions. See the figure below. 
+
+| <img src="https://github.com/mmalekzadeh/motion-sense/blob/master/materials/desc.png" class="img-responsive"> |
+|:---:|
+| Time-series correspond to Walking activity of data subject(code 3). There are 12-features. |
+
+- Feature Selection
+We have chosen five activities from this dataset for 14 males
+and 10 females: going downstairs, going upstairs, walking,
+jogging, and sitting. We used the data segments of the long
+round which lasts for 2 − 3 minutes duration. With total
+samples of 3, 688 data segment, each segment represents 5
+seconds, with no overlapping, for 3-axis accelerometer and
+3-axis gyroscope sensors producing measurements such as
+attitude, gravity, user acceleration, and rotation rate. The figure below
+represents the 3-axis attitude where every color represents
+one activity with one gender, therefore there are 10 different
+colors which represent 5 activities for both genders. The Figure
+shows closeness within the same cluster, and distinctive gap
+between the clusters. 
+| <img src="https://user-images.githubusercontent.com/61229902/171030205-2d3dbf35-2f77-423f-9e3f-adf37d19d3a4.png" class="img-responsive"> |
+|:---:|
+| Scatter Plot of 5 Samples of Acceleration Data For All Combinations in MotionSense dataset. |
+
+## Experinmental Setup
+
+A. FEATURE EXTRACTION
+
+
+
 
 
 
