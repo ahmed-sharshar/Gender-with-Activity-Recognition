@@ -75,6 +75,7 @@ between the clusters.
 | <img src="https://user-images.githubusercontent.com/61229902/171030205-2d3dbf35-2f77-423f-9e3f-adf37d19d3a4.png"  width="70%"  class="img-responsive"> |
 |:---:|
 | Scatter Plot of 5 Samples of Acceleration Data For All Combinations in MotionSense dataset |
+### → It is worth to note that the cut and feature-extracted data are available upon request.
 
 ## Experinmental Setup
 
@@ -107,6 +108,6 @@ We explored the accuracy and F-measure for both datasets using RF, SVM, and CNN,
 
 <br>
 
-### → It is worth to note that the cut and feature-extracted data are available upon request.
+
 <!-- - The main.rar file includes the raw data extracted from the .mat files downloaded, while the FINAL.rar resembles the data overlapped preprocessed, and used for the training -->
 
